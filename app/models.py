@@ -14,13 +14,13 @@ class Webpage(models.Model):
     email=models.EmailField(default='msm875990@gmail.com')
 
     def __str__(self):
-        return self.name
+        return str(self.id)+ ' ' +self.name
 
 class AccessRecord(models.Model):
     name=models.ForeignKey(Webpage, on_delete=models.CASCADE)
     author=models.CharField()
     date=models.DateField()
-    price=models.DecimalField(max_digits=6, decimal_places=2)
+    price=models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.author

@@ -35,8 +35,8 @@ def insert_webpage(request):
         return HttpResponse(f'You entered topic name {topic_name} is not exist in parent table.')
 
 def insert_accessrecord(request):
-    Webpage_name=input('Enter webpage Name:')
-    WTO=Webpage.objects.filter(name=Webpage_name)
+    PK=int(input('Enter PK value'))
+    WTO=Webpage.objects.filter(pk=PK)
     if WTO:
         AR=WTO[0]
         author=input('Enter Author Name:')
@@ -48,4 +48,4 @@ def insert_accessrecord(request):
         else:
             return HttpResponse('Access Record is already exists.')
     else:
-        return HttpResponse(f'You entered webpage name {Webpage_name} is not exist in parent table.')
+        return HttpResponse('You entered webpage  is not exist in parent table.')
