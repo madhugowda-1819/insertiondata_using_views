@@ -19,7 +19,7 @@ from django.urls import path
 from app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),
+    # path('', index, name='index'),
     path('insert_topic/', insert_topic, name='insert_topic'),
     path('insert_webpage/', insert_webpage, name='insert_webpage'),
     path('insert_accessrecord/', insert_accessrecord, name='insert_accessrecord'),

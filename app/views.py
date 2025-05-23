@@ -3,17 +3,19 @@ from django.http import HttpResponse
 from .models import *
 # Create your views here.
 
-def index(request):
-    topics=Topic.objects.all()
-    webpages=Webpage.objects.all()
-    authors=AccessRecord.objects.all()
-    return render(request, 'index.html', {'topics': topics,'webpages':webpages, 'authors': authors})
+# def index(request):
+#     topics=Topic.objects.all()
+#     webpages=Webpage.objects.all()
+#     authors=AccessRecord.objects.all()
+#     return render(request, 'index.html', {'topics': topics,'webpages':webpages, 'authors': authors})
 
 def insert_topic(request):
     topic_name=input('Enter Topic Name:')
     to=Topic.objects.get_or_create(topic_name=topic_name)
     if to[1]:
-        return HttpResponse(f'Topic {topic_name} is created.')
+        LTO=Topic.objects.all()
+        d={'LTO': LTO}
+        return render(request, 'index.html', d)
     else:
         return HttpResponse(f'Topic {topic_name} is already exists.')
     
@@ -28,7 +30,9 @@ def insert_webpage(request):
         email=input('Enter Email:')
         TTo=Webpage.objects.get_or_create(topic_name=TO, name=name, url=url,email=email)
         if TTo[1]:
-            return HttpResponse(f'Webpage {url} is created.')
+            LWO=Webpage.objects.all()
+            d={'LWO': LWO}
+            return render(request, 'web.html',d)
         else:
             return HttpResponse(f'Webpage {url} is already exist.')
     else:
@@ -44,7 +48,9 @@ def insert_accessrecord(request):
         price=float(input('Enter Price:'))
         ARTO=AccessRecord.objects.get_or_create(name=AR,author=author, date=date, price=price)
         if ARTO[1]:
-            return HttpResponse('Access Record is created.')
+            LAO=AccessRecord.objects.all()
+            d={'LAO': LAO}
+            return render(request, 'access.html',d)
         else:
             return HttpResponse('Access Record is already exists.')
     else:

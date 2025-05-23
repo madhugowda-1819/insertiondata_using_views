@@ -9,7 +9,7 @@ class Topic(models.Model):
 
 class Webpage(models.Model):
     topic_name=models.ForeignKey(Topic, on_delete=models.CASCADE)
-    name=models.CharField()
+    name=models.CharField(max_length=100)
     url=models.URLField()
     email=models.EmailField(default='msm875990@gmail.com')
 
@@ -18,7 +18,7 @@ class Webpage(models.Model):
 
 class AccessRecord(models.Model):
     name=models.ForeignKey(Webpage, on_delete=models.CASCADE)
-    author=models.CharField()
+    author=models.CharField(max_length=100)
     date=models.DateField()
     price=models.DecimalField(max_digits=10, decimal_places=2)
 

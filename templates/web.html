@@ -18,31 +18,37 @@
         <div class="container">
             
             <div class="row">
-                <div class="col-4">
-                <h4>Topics</h4>
+               <div class="col-12">
+                <h4>Webpages</h4>
 
                     <table class="table table-secondary">
                 <thead>
                    <tr class="table-dark rounded">
-                    <th>Topic Name</th>
+                    <th>SLNo</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Sport Name</th>
+                    <th>URL</th>
                    </tr>
                 </thead>
                 <tbody>
-                     {% for topic in LTO %}
+                     {% for webpage in LWO %}
                     <tr>
-                        <td>{{topic.topic_name}}</td>
+                        <td>{{webpage.id}}</td>
+                        <td>{{webpage.name}}</td>
+                        <td>{{webpage.email}}</td>
+                        <td>{{webpage.topic_name}}</td>
+                        <td>{{webpage.url}}</td>
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="4">No Data</td>
+                        <td colspan="12">No Data</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
                 </div>
-              
             </div>
-          
         </div>
     </section>
 </body>

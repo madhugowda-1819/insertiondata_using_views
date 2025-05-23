@@ -18,31 +18,38 @@
         <div class="container">
             
             <div class="row">
-                <div class="col-4">
-                <h4>Topics</h4>
-
+                
+               
+                <div class="col">
+                     <h4>Author Records</h4>
                     <table class="table table-secondary">
                 <thead>
-                   <tr class="table-dark rounded">
-                    <th>Topic Name</th>
+                   <tr class="table-dark">
+                    <th>SLNO</th>
+                    <th>Author</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Price</th>
                    </tr>
                 </thead>
                 <tbody>
-                     {% for topic in LTO %}
+                     {% for author in LAO %}
                     <tr>
-                        <td>{{topic.topic_name}}</td>
+                        <td>{{author.id}}</td>
+                        <td>{{author.author}}</td>
+                        <td>{{author.name}}</td>
+                        <td>{{author.date}}</td>
+                        <td>{{author.price}}</td>
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="4">No Data</td>
+                        <td colspan="12">No Data</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
                 </div>
-              
             </div>
-          
         </div>
     </section>
 </body>
